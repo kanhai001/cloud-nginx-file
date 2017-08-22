@@ -98,7 +98,7 @@ The supported parameters are blow.
  * weight
  * max_fails
  * fail_timeout
- * status 参数四个指 down 下掉指定节点  up 启动指定节点   add 添加节点  remove移除节点
+ * status 参数四个值 down 下掉指定节点  up 启动指定节点   add 添加节点  remove移除节点
 
 ### 动态下掉机器
 
