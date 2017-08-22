@@ -1,5 +1,5 @@
 ## nginx的upstream 动态修改以及持久化
- 将**[cloud-nginx-file](cloud-nginx-file)**结合开源项目**[ngx_dynamic_upstram](https://github.com/cubicdaiya/ngx_dynamic_upstream)**，实现对nginx灰度发布功能
+ 将 **[cloud-nginx-file](cloud-nginx-file)** 结合开源项目 **[ngx_dynamic_upstram](https://github.com/cubicdaiya/ngx_dynamic_upstream)**，实现对nginx灰度发布功能
  
 cloud-nginx-file 地址(java编写)：
 >https://github.com/kanhai001/spring-cloud-learning/tree/master/cloud-nginx-file
@@ -8,9 +8,9 @@ ngx_dynamic_upstram地址(C编写)：
 > https://github.com/cubicdaiya/ngx_dynamic_upstream
 
 
-###安装及部署
+### 安装及部署
 
-#####ngx_dynamic_upstram 安装
+##### ngx_dynamic_upstram 安装
 将ngx_dynamic_upstram作为nginx的一个module 添加到nginx
 ```
  ./configure  --add-module=./ngx_dynamic_upstream-0.1.6
@@ -44,7 +44,7 @@ server {
 }
 ```
 
-#####cloud-nginx-file 部署
+##### cloud-nginx-file 部署
 将项目jar包发布至服务器，并启动，启动方式：
 
 * 1）安装为系统服务
@@ -61,7 +61,7 @@ $ nohup java -jar -Dserver.port=8080 -Dspring.file.location=/data/apps/cloud-ngi
 ```
 
 
-##Http API 访问
+## Http API 访问
 
 
 动态操作upstram
@@ -73,7 +73,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends"
 server 127.0.0.1:6001;
 server 127.0.0.1:6002;
 server 127.0.0.1:6003;
-$
 ```
 
 ### 显示详细信息
@@ -83,7 +82,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&verbose="
 server 127.0.0.1:6001 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6002 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6003 weight=1 max_fails=1 fail_timeout=10;
-$
 ```
 
 ### 修改参数
@@ -93,7 +91,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&server=127.0.0.
 server 127.0.0.1:6001 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6002 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6003 weight=10 max_fails=5 fail_timeout=5;
-$
 ```
 
 The supported parameters are blow.
@@ -110,7 +107,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&server=127.0.0.
 server 127.0.0.1:6001 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6002 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6003 weight=1 max_fails=1 fail_timeout=10 down;
-$
 ```
 
 ### 动态将down的机器up 
@@ -120,7 +116,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&server=127.0.0.
 server 127.0.0.1:6001 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6002 weight=1 max_fails=1 fail_timeout=10;
 server 127.0.0.1:6003 weight=1 max_fails=1 fail_timeout=10;
-$
 ```
 
 ### 动态添加节点
@@ -131,7 +126,6 @@ server 127.0.0.1:6001;
 server 127.0.0.1:6002;
 server 127.0.0.1:6003;
 server 127.0.0.1:6004;
-$
 ```
 
 ### 动态移除节点
@@ -141,7 +135,6 @@ $ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&remove=&server=
 server 127.0.0.1:6001;
 server 127.0.0.1:6002;
 server 127.0.0.1:6004;
-$
 ```
 
 
