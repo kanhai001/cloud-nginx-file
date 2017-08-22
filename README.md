@@ -131,7 +131,7 @@ server 127.0.0.1:6004;
 ### 动态移除节点
 
 ```bash
-$ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&remove=&server=127.0.0.1:6003"
+$ curl "http://127.0.0.1:6000/dynamic?upstream=zone_for_backends&status=remove&server=127.0.0.1:6003"
 server 127.0.0.1:6001;
 server 127.0.0.1:6002;
 server 127.0.0.1:6004;
