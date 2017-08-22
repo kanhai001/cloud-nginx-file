@@ -8,9 +8,9 @@ ngx_dynamic_upstram地址(C编写)：
 > https://github.com/cubicdaiya/ngx_dynamic_upstream
 
 
-### 安装及部署
+## 安装及部署
 
-##### ngx_dynamic_upstram 安装
+### ngx_dynamic_upstram 安装
 将ngx_dynamic_upstram作为nginx的一个module 添加到nginx
 ```
  ./configure  --add-module=./ngx_dynamic_upstream-0.1.6
@@ -44,7 +44,7 @@ server {
 }
 ```
 
-##### cloud-nginx-file 部署
+### cloud-nginx-file 部署
 将项目jar包发布至服务器，并启动，启动方式：
 
 * 1）安装为系统服务
